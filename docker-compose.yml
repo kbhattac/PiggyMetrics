@@ -12,7 +12,7 @@ services:
 
   config:
     environment:
-      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+      CONFIG_SERVICE_PASSWORD: password
     image: sqshq/piggymetrics-config:latest
     restart: always
     logging:
@@ -22,7 +22,7 @@ services:
 
   registry:
     environment:
-      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+      CONFIG_SERVICE_PASSWORD: password
     image: sqshq/piggymetrics-registry:latest
     restart: always
     ports:
@@ -34,7 +34,7 @@ services:
 
   gateway:
     environment:
-      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+      CONFIG_SERVICE_PASSWORD: password
     image: sqshq/piggymetrics-gateway:latest
     restart: always
     ports:
@@ -46,11 +46,11 @@ services:
 
   auth-service:
     environment:
-      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
-      NOTIFICATION_SERVICE_PASSWORD: $NOTIFICATION_SERVICE_PASSWORD
-      STATISTICS_SERVICE_PASSWORD: $STATISTICS_SERVICE_PASSWORD
-      ACCOUNT_SERVICE_PASSWORD: $ACCOUNT_SERVICE_PASSWORD
-      MONGODB_PASSWORD: $MONGODB_PASSWORD
+      CONFIG_SERVICE_PASSWORD: password
+      NOTIFICATION_SERVICE_PASSWORD: password
+      STATISTICS_SERVICE_PASSWORD: password
+      ACCOUNT_SERVICE_PASSWORD: password
+      MONGODB_PASSWORD: password
     image: sqshq/piggymetrics-auth-service:latest
     restart: always
     logging:
@@ -60,7 +60,7 @@ services:
 
   auth-mongodb:
     environment:
-      MONGODB_PASSWORD: $MONGODB_PASSWORD
+      MONGODB_PASSWORD: password
     image: sqshq/piggymetrics-mongodb:latest
     restart: always
     logging:
@@ -70,9 +70,9 @@ services:
 
   account-service:
     environment:
-      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
-      ACCOUNT_SERVICE_PASSWORD: $ACCOUNT_SERVICE_PASSWORD
-      MONGODB_PASSWORD: $MONGODB_PASSWORD
+      CONFIG_SERVICE_PASSWORD: password
+      ACCOUNT_SERVICE_PASSWORD: password
+      MONGODB_PASSWORD: password
     image: sqshq/piggymetrics-account-service:latest
     restart: always
     logging:
@@ -83,7 +83,7 @@ services:
   account-mongodb:
     environment:
       INIT_DUMP: account-service-dump.js
-      MONGODB_PASSWORD: $MONGODB_PASSWORD
+      MONGODB_PASSWORD: password
     image: sqshq/piggymetrics-mongodb:latest
     restart: always
     logging:
@@ -93,9 +93,9 @@ services:
 
   statistics-service:
     environment:
-      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
-      MONGODB_PASSWORD: $MONGODB_PASSWORD
-      STATISTICS_SERVICE_PASSWORD: $STATISTICS_SERVICE_PASSWORD
+      CONFIG_SERVICE_PASSWORD: password
+      MONGODB_PASSWORD: password
+      STATISTICS_SERVICE_PASSWORD: password
     image: sqshq/piggymetrics-statistics-service:latest
     restart: always
     logging:
@@ -105,7 +105,7 @@ services:
 
   statistics-mongodb:
     environment:
-      MONGODB_PASSWORD: $MONGODB_PASSWORD
+      MONGODB_PASSWORD: password
     image: sqshq/piggymetrics-mongodb:latest
     restart: always
     logging:
@@ -115,9 +115,9 @@ services:
 
   notification-service:
     environment:
-      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
-      MONGODB_PASSWORD: $MONGODB_PASSWORD
-      NOTIFICATION_SERVICE_PASSWORD: $NOTIFICATION_SERVICE_PASSWORD
+      CONFIG_SERVICE_PASSWORD: password
+      MONGODB_PASSWORD: password
+      NOTIFICATION_SERVICE_PASSWORD: password
     image: sqshq/piggymetrics-notification-service:latest
     restart: always
     logging:
@@ -129,7 +129,7 @@ services:
     image: sqshq/piggymetrics-mongodb:latest
     restart: always
     environment:
-      MONGODB_PASSWORD: $MONGODB_PASSWORD
+      MONGODB_PASSWORD: password
     logging:
       options:
         max-size: "10m"
@@ -137,7 +137,7 @@ services:
 
   monitoring:
     environment:
-      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+      CONFIG_SERVICE_PASSWORD: password
     image: sqshq/piggymetrics-monitoring:latest
     restart: always
     ports:
