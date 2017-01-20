@@ -9,6 +9,8 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
+    restart_policy:
+      condition: on-failure
 
   config:
     environment:
@@ -19,6 +21,8 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
+    restart_policy:
+      condition: on-failure
 
   registry:
     environment:
@@ -31,7 +35,9 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
-
+    restart_policy:
+      condition: on-failure
+      
   gateway:
     environment:
       CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
@@ -43,6 +49,8 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
+    restart_policy:
+      condition: on-failure
 
   auth-service:
     environment:
@@ -57,7 +65,9 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
-
+    restart_policy:
+      condition: on-failure
+      
   auth-mongodb:
     environment:
       MONGODB_PASSWORD: $MONGODB_PASSWORD
@@ -67,6 +77,8 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
+    restart_policy:
+      condition: on-failure        
 
   account-service:
     environment:
@@ -79,6 +91,8 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
+    restart_policy:
+      condition: on-failure        
 
   account-mongodb:
     environment:
@@ -90,7 +104,9 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
-
+    restart_policy:
+      condition: on-failure
+      
   statistics-service:
     environment:
       CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
@@ -102,7 +118,9 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
-
+    restart_policy:
+      condition: on-failure
+      
   statistics-mongodb:
     environment:
       MONGODB_PASSWORD: $MONGODB_PASSWORD
@@ -112,7 +130,9 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
-
+    restart_policy:
+      condition: on-failure
+      
   notification-service:
     environment:
       CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
@@ -124,7 +144,9 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
-
+    restart_policy:
+      condition: on-failure
+      
   notification-mongodb:
     image: sqshq/piggymetrics-mongodb:latest
     restart: always
@@ -134,7 +156,9 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
-
+    restart_policy:
+      condition: on-failure
+      
   monitoring:
     environment:
       CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
@@ -147,3 +171,5 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
+    restart_policy:
+      condition: on-failure        
