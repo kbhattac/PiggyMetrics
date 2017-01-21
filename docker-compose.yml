@@ -5,6 +5,9 @@ services:
     restart: always
     ports:
       - 15672:15672
+    deploy:
+      placement:
+        constraints: [node.role == manager]
 
   config:
     environment:
