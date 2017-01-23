@@ -36,8 +36,6 @@ services:
       ACCOUNT_SERVICE_PASSWORD: "test"
       MONGODB_PASSWORD: "test"
     image: sqshq/piggymetrics-auth-service:latest
-    ports:
-      - 8082:5000
  
 
   auth-mongodb:
