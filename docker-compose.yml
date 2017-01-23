@@ -2,6 +2,7 @@ version: '3'
 services:
   rabbitmq:
     image: library/rabbitmq:3-management
+
     ports:
       - 15672:15672
 
@@ -9,13 +10,13 @@ services:
     environment:
       CONFIG_SERVICE_PASSWORD: "test"
     image: sqshq/piggymetrics-config:latest
-    restart: always
+    
 
   registry:
     environment:
       CONFIG_SERVICE_PASSWORD: "test"
     image: sqshq/piggymetrics-registry:latest
-    restart: always
+    
     ports:
       - 8761:8761
 
@@ -23,7 +24,7 @@ services:
     environment:
       CONFIG_SERVICE_PASSWORD: "test"
     image: sqshq/piggymetrics-gateway:latest
-    restart: always
+    
     ports:
       - 8081:4000
 
@@ -35,13 +36,13 @@ services:
       ACCOUNT_SERVICE_PASSWORD: "test"
       MONGODB_PASSWORD: "test"
     image: sqshq/piggymetrics-auth-service:latest
-    restart: always
+    
 
   auth-mongodb:
     environment:
       MONGODB_PASSWORD: "test"
     image: sqshq/piggymetrics-mongodb:latest
-    restart: always
+    
 
   account-service:
     environment:
@@ -49,14 +50,14 @@ services:
       ACCOUNT_SERVICE_PASSWORD: "test"
       MONGODB_PASSWORD: "test"
     image: sqshq/piggymetrics-account-service:latest
-    restart: always
+    
 
   account-mongodb:
     environment:
       INIT_DUMP: account-service-dump.js
       MONGODB_PASSWORD: "test"
     image: sqshq/piggymetrics-mongodb:latest
-    restart: always
+    
 
   statistics-service:
     environment:
@@ -64,13 +65,14 @@ services:
       MONGODB_PASSWORD: "test"
       STATISTICS_SERVICE_PASSWORD: "test"
     image: sqshq/piggymetrics-statistics-service:latest
-    restart: always
+    ports:
+      - 8082:5000
 
   statistics-mongodb:
     environment:
       MONGODB_PASSWORD: "test"
     image: sqshq/piggymetrics-mongodb:latest
-    restart: always
+    
 
   notification-service:
     environment:
@@ -78,11 +80,11 @@ services:
       MONGODB_PASSWORD: "test"
       NOTIFICATION_SERVICE_PASSWORD: "test"
     image: sqshq/piggymetrics-notification-service:latest
-    restart: always
+    
 
   notification-mongodb:
     image: sqshq/piggymetrics-mongodb:latest
-    restart: always
+    
     environment:
       MONGODB_PASSWORD: "test"
 
@@ -90,7 +92,7 @@ services:
     environment:
       CONFIG_SERVICE_PASSWORD: "test"
     image: sqshq/piggymetrics-monitoring:latest
-    restart: always
+    
     ports:
       - 9000:8080
       - 8989:8989
